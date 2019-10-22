@@ -14,4 +14,3 @@ The project of HongSeLvYou
 然后就运行程序`node app.js`
 
 系统就可以跑起来了
-
