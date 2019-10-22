@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>梅州旅游管理系统后台</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="../public/src/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../public/css/management.css"/>
+	<script src="../public/src/jquery.min.js"></script>
+	<script src="../public/js/management.js"></script>
+</head>
+<body>
+	<!--头部-->
+	<nav>
+		梅州市旅游景点服务管理系统
+		<img src="../public/img/logo.png" alt="梅州市旅游景点服务管理平台" title="梅州市旅游景点服务管理平台"/>
+		<div id="r">
+			<span class="glyphicon glyphicon-user">你好,admit</span>
+			<div>退出</div>
+		</div>
+	</nav>
+	<!--目录树部分-->
+	<div id="left">
+		<ul>
+			<li>
+				<span class="glyphicon glyphicon-user file clear"> 用户管理</span>
+				<ul>
+					<li class="file clear" id="datauser">用户管理</li>
+					<li class="file clear" id="datapower">权限管理</li>
+				</ul>				
+			</li>
+			<li id="dataview">
+				<span class="glyphicon glyphicon-globe file clear"> 景点管理</span>
+			</li>
+			<li>
+				<span class="glyphicon glyphicon-tasks file clear"> 论坛管理</span>
+				<ul>
+					<li class="file clear" id="dataarticle">文章/提问</li>
+					<li class="file clear" id="datacomment">评论</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<!---->
+	<div id="header">
+		<div> 
+		</div>
+		<p>
+			梅州市旅游景点服务管理系统后台管理
+		</p>
+	</div>	
+	<!--main：这里嵌入网页-->
+	<main>
+		<iframe id="view" height="560px" width="98%" style="border:none;overflow-y:none;margin:0px 1%;padding-top:10px;display: none;" src="view.html"></iframe>
+		<iframe id="user" height="560px" width="98%" style="border:none;overflow-y:none;margin:0px 1%;padding-top:10px;display: none;" src="user.html"></iframe>		
+		<iframe id="article" height="560px" width="98%" style="border:none;overflow-y:none;margin:0px 1%;padding-top:10px;display: none;" src="article.html"></iframe>
+		<iframe id="comment" height="560px" width="98%" style="border:none;overflow-y:none;margin:0px 1%;padding-top:10px;display: none;" src="comment.html"></iframe>		
+		<iframe id="power" height="560px" width="98%" style="border:none;overflow-y:none;margin:0px 1%;padding-top:10px;display: none;" src="power.html"></iframe>			
+	</main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{{extend '../_layouts/home.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/markdown-github.css">
+<style>
+  .panel .panel-heading .action i {
+    margin-right: 10px;
+  }
+</style>
+{{/block}}
+
+{{block 'body'}}
+<section class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <!-- 这里是用给给get查数据的，并不是，这里其实没用 -->
+      <!-- <input type="hidden" name="id" value="{{ article.id }}"> -->
+      <!-- <input type="hidden" name="theme" value="{{ article.theme }}"> -->
+      
+      <article class="markdown-body">
+      <h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>{{ article.theme }}</h1>
+        <p>{{ article.content }}</p>
+    </article>
+
+    {{ if comment }}
+      {{ each comment }}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span>{{$value.nickname}}</span> commented 
+          <span>24 minutes ago</span>
+          <span class="action">
+            <a href=""><i class="glyphicon glyphicon-thumbs-up pull-right"></i></a>
+            <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
+          </span>
+        </div>
+        <div class="panel-body">
+          {{$value.content}}
+        </div>
+      </div>
+        {{ /each }}
+        {{ else }}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <span>现在没有人评论喔</span> commented 
+              <span>24 minutes ago</span>
+              <span class="action">
+                <a href=""><i class="glyphicon glyphicon-thumbs-up pull-right"></i></a>
+                <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
+              </span>
+            </div>
+            <div class="panel-body">
+              赶紧评论吧！
+            </div>
+          </div>
+          {{ /if }}
+
+      <hr>
+      <form action="/topic/show" method="post">
+        <input type="hidden" name="id" value="{{ article.id }}">
+        <input type="hidden" name="theme" value="{{ article.theme }}">
+        <input type="hidden" name="nickname" value="{{ user.nickname }}">
+        <div class="form-group">
+          <label for="exampleInputPassword1">添加回复</label>
+          <textarea name="content" class="form-control" name="" id="" cols="10" rows="10"></textarea>
+        </div>
+        {{ if data }}
+        <input type="text" name="data" value="{{ data }}">
+        {{ /if }}
+        <button type="submit" class="btn btn-success">回复</button>
+      </form>
+    </div>
+  </div>
+</section>
+{{/block}}

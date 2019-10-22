@@ -1,0 +1,124 @@
+nav,div,h2,ul,li,span{
+	margin: 0 0;
+	padding: 0 0;
+}
+html,body{
+	height: 100%;
+	font-family:'等线',Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"!important;
+	background-color: #f0f0f0;
+}
+/*头部*/
+nav{
+	z-index: 2;
+	position: absolute;
+	height:55px;
+	min-width:968px;
+	color:white;
+	font-size:20px;
+	line-height:35px;
+	padding:10px;
+	width: 100%;
+	background:-webkit-linear-gradient(60deg,#64b3f4 0%,#c2e59c 100%);
+  background:-o-linear-gradient(60deg,#64b3f4 0%,#c2e59c 100%);
+  background:-moz-linear-gradient(60deg,#64b3f4 0%,#c2e59c 100%);
+  background:linear-gradient(60deg,#64b3f4 0%,#c2e59c 100%);
+}
+nav div{
+	display: inline-block;
+}
+nav div div{
+	font-size:16px;
+	cursor: pointer;
+	margin:0 10px;
+}
+nav span{
+	letter-spacing:0.1em;
+	height: 35px;
+	font-size:15px;
+	border:white solid 0.5px;
+	padding:10px 10px;
+	border-radius:4px;
+}
+#r{
+	float: right;
+}
+/*目录树*/
+#left{
+	font-size: 16px;
+	background-color:#2d2d2d;
+	color:#c9c9c9;
+	width:200px;
+	height:100%;
+	position: absolute;
+	z-index: 0;
+}
+#left>ul{
+	position: absolute;
+	top:80px;
+	left: 20px;
+}
+ul{
+	list-style: none;
+}
+ul>.file{
+	padding:5px 10px;
+	margin-left:33px;
+	cursor: pointer;
+}
+.file:hover{
+	color: #64b3f4;
+}
+span:hover{
+	font-weight: bold;
+}
+#left span{
+	cursor: pointer;
+	padding:20px 10px 20px;
+}
+/*main*/
+main{
+	position: absolute;
+	border-radius: 4px;
+	top:120px;
+	left: 210px;
+	background-color:white;
+	min-width:868px;
+	height: 572px;
+	min-height: 572px;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+}
+/**/
+nav img{
+	height: 35px;
+	display: inline-block;
+}
+/**/
+#header{
+	position: absolute;
+	top:55px;
+	left: 200px;
+	height:50px;
+	background-color: white;
+	padding:4px;
+	box-shadow:0 1px 3px rgba(26,26,26,.1);
+}
+#header p{
+	font-size:18px;
+	font-weight: bold;
+	line-height:30px;
+	display:inline-block;
+	height:30px;
+	position: relative;
+	top:-3px;
+	margin-left: 10px;
+}
+#header div{
+	margin-left:10px;
+	height: 30px;
+	display: inline-block;
+	width:6px;
+	background-color: #64b3f4;
+	position: relative;
+	top:5px;
+	border-radius: 3px;
+}

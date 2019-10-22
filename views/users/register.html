@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>登录</title>
+    <link href="/public/src/bootstrap.min.css" rel="stylesheet" />
+    <link href="/public/css/global.css" rel="stylesheet" />
+    <link href="/public/css/register.css" rel="stylesheet" />
+    <script src="/public/src/jquery.min.js"></script>
+    <script src="/public/src/bootstrap.min.js"></script>
+    <script src="/public/js/register.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+    <div id="content">
+    </div>
+    <div class="registerscreen">
+        <div class="left">
+            <img src="/public/img/pt.png" alt="#" />
+        </div>
+        <div class="right">
+            <div>
+                <h1 class="logo">红色记忆</h1>
+            </div>
+            <p>-创建一个新账户-</p>
+            <form id="register_form" method = "POST" action ="/register">
+
+                <div class="form-group">
+                        <input type="text" name="nickname" class="form-control txtUserName"
+                            placeholder="昵称" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control txtUserName"
+                        placeholder="用户名" />
+                </div>
+                <div class="form-group">
+                    <input type="password" name="passwd"  class="form-control txtPassWord"
+                        placeholder="密码" />
+                </div>
+                <span class="errorTxt"></span>
+
+                <button type="submit" class="btn saveUser">注 册</button>
+
+            </form>
+            <p class="text-muted text-center"><small>已经有账户了？</small><a href="/login">点此登录</a>
+            </p>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
