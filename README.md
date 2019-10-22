@@ -11,6 +11,8 @@ The project of HongSeLvYou
 
 运行程序，首先需要启动mongodb的数据库`net start mongodb`
 
+运行程序之前，需要把所有依赖项下载下来`npm install`
+
 然后就运行程序`node app.js`
 
 系统就可以跑起来了
