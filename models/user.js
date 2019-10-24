@@ -36,6 +36,9 @@ var userSchema = new Schema({
         // 2 不可以登录
         enum: [0, 1, 2],
         default: 0
+      },
+      email:{
+          type:String
       }
 })
 

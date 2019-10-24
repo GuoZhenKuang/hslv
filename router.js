@@ -82,11 +82,11 @@ router.get('/topic/show', function (req, res) {
         //用find一定要合乎语法规范加上{theme:article.theme}，这样才能有条件搜索
         Comment.find({theme:article.theme},function(err,comment){
             if(err){
-                console.log(article.theme)
+                //console.log(article.theme)
                 console.log('失败')
                 return res.status(500).send('Server error.')
             }
-            console.log(comment)
+            //console.log(comment)
                 res.render('./topic/show.html',{
                     user:req.session.user,
                     article:article,
@@ -114,6 +114,73 @@ router.get('/topic/show', function (req, res) {
     //console.log(article.theme)
 })
 
+//后台管理系统界面展示
+router.get('/background',function(req,res){
+    // User.find(function(err,user){
+    //     if(err){
+    //         return res.status(500).send("Server error") 
+    //     }
+    //     res.render('./background/management.html')
+    //     req.session.user = user
+    //     console.log(user)
+    // })
+    res.render('./background/management.html')
+})
+
+//后台管理系统景点管理展示
+router.get('/background/view',function(req,res){
+    res.render('./background/view.html')
+    
+    
+})
+
+//后台管理系统用户管理展示
+router.get('/background/user',function(req,res){
+    // res.render('./background/user.html',{
+    //     user:req.session.user
+    // })
+    // console.log(req.session.user)
+    User.find(function(err,user){
+        if(err){
+            return res.status(500).send('err status')
+        }
+        res.render('./background/user.html',{
+            user:user
+        })
+    })
+
+})
+
+//后台管理权限管理
+router.get('/background/power',function(req,res){
+    res.render('./background/power.html')
+})
+
+//后台管理文章/提问
+router.get('/background/article',function(req,res){
+    Article.find(function (err,article) { 
+        if(err){
+            return res.status(500).send('server err')
+        }
+        res.render('./background/article.html',{
+            article:article
+        })
+     })
+    
+})
+
+//后台管理的评论
+router.get('/background/comment',function(req,res){
+    Comment.find(function(err,comment){
+        if(err){
+            return res.status(500).send('server err')
+        }
+        res.render('./background/comment.html',{
+            comments:comment
+        })
+    })
+
+})
 
 //======================get=====================
 
@@ -246,9 +313,12 @@ router.post('/changepwd', function (req, res) {
 //用户修改设置提交表单
 router.post('/settings/profile', function (req, res) {
     var body = req.body
+    // console.log(111)
+    // console.log(body.id)
+    // console.log(222)
     //console.log(body.username)
-    User.findOneAndUpdate(body.username, body,
-        function (err) {
+    User.findByIdAndUpdate(body.id, body,
+        function (err,data) {
             if (err) {
                 //console.log(req.body.id)
                 return res.status(500).json({
@@ -256,19 +326,20 @@ router.post('/settings/profile', function (req, res) {
                     message: err.message
                 })
             }
-            //修改成功，记录登录状态，通过session记录登录状态
+            if(data){
+          //修改成功，记录登录状态，通过session记录登录状态
 
-            req.session.user = body
-            //  res.status(200).json({
-            //      err_code:0,
-            //      message:'ok '
-            //  })
-            //把数据库给它才能用
-            //user: req.session.user
-            //修改成功重定向到首页    
-            res.redirect('/settings/profile', 301)
-            // res.location('/settings/profile')
-
+          req.session.user = body
+          //  res.status(200).json({
+          //      err_code:0,
+          //      message:'ok '
+          //  })
+          //把数据库给它才能用
+          //user: req.session.user
+          //修改成功重定向到首页    
+          res.redirect('/settings/profile')
+          // res.location('/settings/profile')
+            }
         })
 
 
@@ -289,7 +360,7 @@ router.post('/settings/admin', function (req, res) {
             user: req.session.user
         })
     } else {
-        User.findOneAndUpdate(body.username, body, function (err, data) {
+        User.findByIdAndUpdate(body.id, body, function (err, data) {
             if (err) {
                 return res.send('服务器出现错误，请重新尝试')
             }
@@ -303,6 +374,18 @@ router.post('/settings/admin', function (req, res) {
     // console.log(body.oldpwd)
     // console.log(body.newpwd)
     // console.log(body.repeat)
+})
+
+router.post('/settings/delete',function(req,res){
+    //console.log(req.body.id)
+    User.findByIdAndRemove(req.body.id,function(err){
+        if(err){
+            return res.status(500).send('server err')
+        }
+        req.session.user = null
+        res.redirect('/')
+        //req.session.user = null
+    })
 })
 
 //发布文章
