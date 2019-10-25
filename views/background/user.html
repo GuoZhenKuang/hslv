@@ -57,11 +57,11 @@
 <body>
 	<form method="post">
 		<div id="header" class="row">
-			<div class="col-lg-4 col-md-5 col-sm-12">
-				<input id="add" type="button" value="添加用户" name="add" class="btn btn-info" data-toggle="modal" data-target="#myModal2"/>
-				<input id="del" type="button" value="删除用户" name="del" class="btn btn-info"/>			
-			</div>
-			<div class="col-lg-8 col-md-7 col-sm-12" id="ss">
+			<!-- <div class="col-lg-4 col-md-5 col-sm-12">
+				<input id="add" type="button" value="添加用户" name="add" class="btn btn-info" data-toggle="modal" data-target="#myModal2"/> -->
+				<!-- <input id="del" type="button" value="删除用户" name="del" class="btn btn-info"/>-->
+			</div> 
+			<div class="col-lg-12 col-md-12 col-sm-12" id="ss">
 				<div class="input-group">
 					<input type="text" class="form-control">
 					<span class="input-group-btn">
@@ -92,7 +92,7 @@
 					<td>{{ $value.birthday }}</td>
 					<td>{{ $value.email }}</td>
 					<td>{{ $value.satus }}</td>
-					<td><a href="#" data-toggle="modal" data-target="#myModal">删除</a></td>				
+					<td><a href="/background/user/delete?id={{ $value.id }}">删除</a></td>				
 				</tr>
 				{{ /each }}			
 			</tbody>
@@ -109,7 +109,7 @@
 			</ul>		
 		</div>
 		<!--修改的弹出窗-->
-		<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="#myModalLabel" role="dialog" aria-hidden="true">
+		<!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="#myModalLabel" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -153,7 +153,7 @@
 				</div>
 			</div>
 		</div>		
-		<!---->
+		 -->
 		<div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="#myModalLabel2" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">

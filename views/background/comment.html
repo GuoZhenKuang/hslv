@@ -55,11 +55,11 @@
 <body>
 	<form method="post">
 		<div id="header" class="row">
-			<div class="col-lg-4 col-md-5 col-sm-12">
+			<!-- <div class="col-lg-4 col-md-5 col-sm-12">
 				<input id="add" type="button" data-toggle="modal" data-target="#myModal2" value="添加评论" name="add" class="btn btn-info"/>
 				<input id="del" type="button" value="删除评论" name="del" class="btn btn-info"/>			
-			</div>
-			<div class="col-lg-8 col-md-7 col-sm-12" id="ss">
+			</div> -->
+			<div class="col-lg-12 col-md-12 col-sm-12" id="ss">
 				<div class="input-group">
 					<input type="text" class="form-control">
 					<span class="input-group-btn">
@@ -90,7 +90,7 @@
 					<td>{{$value.content}}</td>
 					<td>{{$value.time}}</td>
 					<td>{{$value.good}}</td>
-					<td><a href="#" data-toggle="modal" data-target="#myModal">删除</a></td>				
+					<td><a href="/background/comment/delete?id={{ $value.id }}">删除</a></td>				
 				</tr>
 			</tbody>
 			{{/each}}
@@ -107,7 +107,7 @@
 			</ul>				
 		</div>
 		<!--修改的弹出窗-->
-		<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="#myModalLabel" role="dialog" aria-hidden="true">
+		<!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="#myModalLabel" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -142,7 +142,7 @@
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>		 -->
 		<!--添加的弹出窗-->
 		<div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="#myModalLabel" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">

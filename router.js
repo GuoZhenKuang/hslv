@@ -151,10 +151,22 @@ router.get('/background/user',function(req,res){
 
 })
 
-//后台管理权限管理
-router.get('/background/power',function(req,res){
-    res.render('./background/power.html')
+//后台管理系统用户管理删除
+router.get('/background/user/delete',function(req,res){
+    User.findByIdAndRemove(req.query.id,function(err){
+        if(err){
+            res.status(500).send("删除失败，请重新尝试")
+        }
+        //否则则删除成功
+        //刷新当前界面，重定向一下
+        res.redirect('/background/user')
+    })
 })
+
+//后台管理权限管理
+// router.get('/background/power',function(req,res){
+//     res.render('./background/power.html')
+// })
 
 //后台管理文章/提问
 router.get('/background/article',function(req,res){
@@ -169,6 +181,18 @@ router.get('/background/article',function(req,res){
     
 })
 
+//后台管理文章/提问删除
+router.get('/background/article/delete',function(req,res){
+   //console.log(req.query.id)
+    Article.findByIdAndRemove(req.query.id,function(err){
+        if(err){
+            return res.status(500).send('删除失败,请重新尝试')
+        }
+        //否则删除成功，重定向回提问的界面
+        res.redirect('/background/article')
+    })
+})
+
 //后台管理的评论
 router.get('/background/comment',function(req,res){
     Comment.find(function(err,comment){
@@ -180,6 +204,19 @@ router.get('/background/comment',function(req,res){
         })
     })
 
+})
+
+//后台管理的评论的删除
+router.get('/background/comment/delete',function(req,res){
+   // console.log(req.query.id)
+    Comment.findByIdAndRemove(req.query.id,function(err){
+        if(err){
+            return res.status(500).send('删除失败')
+        }
+        //console.log('删除成功')
+        //否则删除成功
+        res.redirect('/background/comment')
+    })
 })
 
 //======================get=====================
